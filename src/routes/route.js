@@ -39,3 +39,69 @@ router.get('/candidates/:canidatesName', function(req, res){
 
 module.exports = router;
 // adding this comment for no reason
+router.get('/movies', function(req, res){
+    let movies = ["Rang de basanti", "The shining", "Lord of the rings", "Batman begins"]
+    res.send(movies)
+});
+
+router.get('/movies/:indexNumber', function(req,res){
+    let movies = ["Rang de basanti", "The shining", "Lord of the rings", "Batman begins"]
+    JSON.stringify(req.params)
+    let item = movies[req.params.indexNumber]
+    if(req.params.indexNumber < movies.length)
+    {
+        res.send(item)
+    }
+    else
+    {
+        res.send("No movie exists with this id")
+    }
+});
+
+router.get('/films', function(req, res)
+{
+    let arr=[ {
+        "id": 1,
+        "name": "The Shining"
+       }, {
+        "id": 2,
+        "name": "Incendies"
+       }, {
+        "id": 3,
+        "name": "Rang de Basanti"
+       }, {
+        "id": 4,
+        "name": "Finding Nemo"
+       }]
+       res.send(arr)
+        
+});
+
+router.get('/films/:filmId', function(req, res)
+{
+    let arr=[ {
+        "id": 1,
+        "name": "The Shining"
+       }, {
+        "id": 2,
+        "name": "Incendies"
+       }, {
+        "id": 3,
+        "name": "Rang de Basanti"
+       }, {
+        "id": 4,
+        "name": "Finding Nemo"
+       }]
+       JSON.stringify(req.params)
+       let item = arr[req.params.filmId]
+       if(req.params.filmId < arr.length)
+        {
+            res.send(item)
+        }
+        else
+        {
+            res.send("No movie exists with this id")
+        }
+});
+router.get('/movies/')
+module.exports = router;
